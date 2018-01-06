@@ -67,11 +67,22 @@ body {
 .display p {
 	font-family: 'digital-7regular';
 	text-align: right;
-	font-size: 45px;
-	padding-top: 100px;
-	padding-right: 15px;
-	
 }
+
+#result {
+
+	padding-top: 110px;
+	padding-right: 15px;
+	font-size: 45px;
+}
+
+/*#previous {
+	padding-top: 10px;
+	padding-right: 15px;
+	font-size: 26px;
+}
+
+*/
 
 
 .container {
@@ -86,8 +97,12 @@ body {
 	background: #F4EFDB;
 }
 
-#c, #ce {
+#clear, #clearCurrent {
 	background: #C45A10;
+}
+
+#clearCurrent {
+	visibility: hidden;
 }
 
 #hidden1, #hidden2 {
