@@ -14,17 +14,6 @@ function divide(a,b) {
 	return a/b;
 }
 
-// function findPriority(operator) {
-// 	switch(operator) {
-// 		case "+":
-// 		case "-":
-// 			return 1;
-// 		case "*":
-// 		case "/":
-// 			return 2;
-
-// 	}
-// }
 
 function operate(operator,a,b) {
 	console.log(operator);
@@ -49,6 +38,7 @@ let op = '';
 
 let opWasPrev = false;
 let isFirstNum = true;
+let equalWasPrev = false;
 
 const result = document.getElementById("result");
 // const previous = document.getElementById("previous");
@@ -61,12 +51,18 @@ const numBtns = document.querySelectorAll(".numbers");
 
 numBtns.forEach(btn => {
 	btn.addEventListener('click', function(e) {
-		if(opWasPrev) {
-			result.innerText = btn.value;
-			opWasPrev = false;
+		if (result.innerText.length < 20) {
+
+			if(opWasPrev || equalWasPrev) {
+				result.innerText = btn.value;
+				opWasPrev = false;
+				equalWasPrev = false;
+			}
+			else
+				result.innerText += btn.value;
 		}
-		else
-			result.innerText += btn.value;
+
+		
 	});
 } );
 
@@ -75,22 +71,22 @@ console.log(opBtns);
 
 opBtns.forEach(btn => {
 	btn.addEventListener('click', function(e) {
-		if (isFirstNum) {
-			a = result.innerText;
-			op = btn.value;
-			opWasPrev = true;
-			isFirstNum = false;
+		if((!opWasPrev)) {
+			if (isFirstNum  || equalWasPrev) {
+				a = result.innerText;
+				op = btn.value;
+				opWasPrev = true;
+				isFirstNum = false;
+				equalWasPrev = false;
+			}
+			else {
+				b = result.innerText;
+				result.innerText = operate(op,Number(a),Number(b));
+				a = result.innerText;
+				op = btn.value;
+				opWasPrev = true;
+			}
 		}
-		else {
-			b = result.innerText;
-			result.innerText = operate(op,Number(a),Number(b));
-			a = result.innerText;
-			op = btn.value;
-			opWasPrev = true;
-		}
-
-		
-		
 		// previous.innerText += ' ' + a + ' ' + btn.innerText;
 		
 	});
@@ -103,7 +99,8 @@ equalBtn.addEventListener('click', function(e) {
 		b = result.innerText;
 		result.innerText = operate(op,Number(a),Number(b));
 		isFirstNum = true;
-		opWasPrev = true;
+		// opWasPrev = true;
+		equalWasPrev = true;
 	}
 });
 
@@ -116,17 +113,21 @@ clearBtn.addEventListener('click', function(e) {
 	op = "";
 	opWasPrev = false;
 	isFirstNum = true;
+	equalWasPrev = false;
 	// previous.innerText = "";
 
 } );
 
-// const clearCurrentBtn = document.querySelector("#clearCurrent");
-// clearCurrentBtn.addEventListener('click', function(e) {
-// 	result.innerText = "";
-// } );
 
 const dotBtn = document.querySelector(".dot");
 dotBtn.addEventListener('click',function(e) {
 	if(!(result.innerText.indexOf(".") > -1))
 		result.innerText += dotBtn.value;
+});
+
+
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener('click',function(e) {
+	if(result.innerText)
+		result.innerText = result.innerText.slice(0,-1);
 });

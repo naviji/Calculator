@@ -97,13 +97,10 @@ body {
 	background: #F4EFDB;
 }
 
-#clear, #clearCurrent {
+#clear, #backspace {
 	background: #C45A10;
 }
 
-#clearCurrent {
-	visibility: hidden;
-}
 
 #hidden1, #hidden2 {
 	visibility: hidden;
