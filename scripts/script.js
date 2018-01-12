@@ -32,6 +32,8 @@ function operate(operator,a,b) {
 	
 }
 
+const MAX_LENGTH = 19;
+
 let a = '';
 let b = '';
 let op = '';
@@ -51,7 +53,7 @@ const numBtns = document.querySelectorAll(".numbers");
 
 numBtns.forEach(btn => {
 	btn.addEventListener('click', function(e) {
-		if (result.innerText.length < 20) {
+		if (result.innerText.length < MAX_LENGTH) {
 
 			if(opWasPrev || equalWasPrev) {
 				result.innerText = btn.value;
