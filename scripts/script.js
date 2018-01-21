@@ -32,7 +32,7 @@ function operate(operator,a,b) {
 	
 }
 
-const MAX_LENGTH = 19;
+const MAX_LENGTH = 15;
 
 let a = '';
 let b = '';
@@ -53,18 +53,16 @@ const numBtns = document.querySelectorAll(".numbers");
 
 numBtns.forEach(btn => {
 	btn.addEventListener('click', function(e) {
-		if (result.innerText.length < MAX_LENGTH) {
-
-			if(opWasPrev || equalWasPrev) {
-				result.innerText = btn.value;
-				opWasPrev = false;
-				equalWasPrev = false;
-			}
-			else
-				result.innerText += btn.value;
+		if (opWasPrev) {
+			result.innerText = btn.value;
+			opWasPrev = false;
 		}
-
-		
+		else if (equalWasPrev) {
+			result.innerText = btn.value;
+			equalWasPrev = false;
+		}
+		else if (result.innerText.length < MAX_LENGTH)
+			result.innerText += btn.value;		
 	});
 } );
 
@@ -89,6 +87,7 @@ opBtns.forEach(btn => {
 				opWasPrev = true;
 			}
 		}
+		
 		// previous.innerText += ' ' + a + ' ' + btn.innerText;
 		
 	});
