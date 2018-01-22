@@ -1,8 +1,7 @@
-@font-face{
- font-family:'digital-clock-font';
- src: url('fonts/digital-7-webfont.ttf');
+@font-face {
+	font-family: 'digital-clock-font';
+	src: url('fonts/digital-7-webfont.ttf');
 }
-
 
 body {
 	padding: 0;
@@ -11,14 +10,11 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
 }
 
 .numpad {
 	margin: 15px;
 }
-
-
 
 .title p {
 	font-size: 50px;
@@ -30,7 +26,6 @@ body {
 }
 
 .numpad button {
-	
 	height: 60px;
 	width: 95px;
 	margin: 8px;
@@ -43,45 +38,37 @@ body {
 	text-decoration: none;
 	outline: none;
 	color: black;
-	
 	background: #757B71;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 5px 7px #252E2B;
-
 }
-
 
 .numpad button:active {
-  box-shadow: 2px 5px #252E2B;
-  transform: translateY(4px);
+	box-shadow: 2px 5px #252E2B;
+	transform: translateY(4px);
 }
 
-
-
 .display {
-
 	background-color: black;
 	color: #E67628;
 	width: 450px;
 	height: 160px;
 	margin: 0 auto;
 	border: solid 1px black;
-	
 }
 
 .display p {
 	font-family: 'digital-clock-font';
 	text-align: right;
-
 }
 
 #result {
-
 	padding-top: 110px;
 	padding-right: 12px;
 	font-size: 48px;
 }
+
 
 /*#previous {
 	padding-top: 10px;
@@ -91,24 +78,28 @@ body {
 
 */
 
-
 .container {
 	position: relative;
 	top: 50px;
-	
+	border-radius: 10px;
 	border: solid 5px;
 	background: #C5C6B6;
 }
 
-#div, #mul, #sub, #plus, #equal {
+#div,
+#mul,
+#sub,
+#plus,
+#equal {
 	background: #F4EFDB;
 }
 
-#clear, #backspace {
+#clear,
+#backspace {
 	background: #C45A10;
 }
 
-
-#hidden1, #hidden2 {
+#hidden1,
+#hidden2 {
 	visibility: hidden;
 }
