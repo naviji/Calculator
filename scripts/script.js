@@ -32,11 +32,13 @@ function operate(operator,a,b) {
 	
 }
 
-const MAX_LENGTH = 15;
+const MAX_LENGTH = 16;
 
 let a = '';
 let b = '';
 let op = '';
+
+let tempResult;
 
 let opWasPrev = false;
 let isFirstNum = true;
@@ -98,7 +100,8 @@ console.log(equalBtn);
 equalBtn.addEventListener('click', function(e) {
 	if (!isFirstNum) {
 		b = result.innerText;
-		result.innerText = operate(op,Number(a),Number(b));
+		tempResult = operate(op, Number(a), Number(b));
+		result.innerText = (tempResult <= Number.MAX_SAFE_INTEGER)?tempResult:Infinity;
 		isFirstNum = true;
 		// opWasPrev = true;
 		equalWasPrev = true;
