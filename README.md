@@ -2,4 +2,4 @@
 On-screen calculator using JavaScript, HTML and CSS.
 
 
-Live version: https://naveencode.github.io/Calculator/
+Live version: https://naviji.github.io/Calculator/
